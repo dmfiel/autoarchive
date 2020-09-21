@@ -1,9 +1,9 @@
 {
   "applications": {
     "gecko": {
-      "id": "awsomeautoarchive@opera.wang",
+      "id": "awsomeAutoArchive@opera.wang",
       "strict_min_version": "68.0",
-      "strict_max_version": "68.99"
+      "strict_max_version": "78.99"
     }
   },
   "version": "0.9.68beta-df",
@@ -12,16 +12,24 @@
   "description": "Automatically Archive/Copy/Delete/Move emails based on user defined rules",
   "author": "Opera Wang, updates David Fiel",
   "homepage_url": "https://github.com/wangvisual/autoArchive",
-  "legacy": {
-    "type": "bootstrap",
-    "options": {
-      "page": "chrome://awsomeAutoArchive/content/autoArchivePrefDialog.xul",
-      "open_in_tab": false
-    }
-  },
   "icons": {
     "32": "icon.png",
     "48": "icon.png",
     "64": "icon.png"
+  },
+  "experiment_apis": {
+    "BootstrapLoader": {
+      "schema": "api/BootstrapLoader/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["BootstrapLoader"]],
+        "script": "api/BootstrapLoader/implementation.js"
+      }
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
   }
 }
